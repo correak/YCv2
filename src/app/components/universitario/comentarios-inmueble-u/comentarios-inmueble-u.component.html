@@ -1,0 +1,19 @@
+<div class="container my-4">
+  <h2 class="text-center">{{ direccionInmueble }}</h2>
+  <h3 class="text-center mt-3">Todas las reseñas</h3>
+
+  <div class="comentarios-container mt-4">
+    <mat-card *ngFor="let comentario of comentarios" class="mb-3 comentario-card">
+      <div class="comentario-header d-flex align-items-center justify-content-between">
+        <strong>{{ comentario.nombreUniversitario }}</strong>
+        <span class="text-muted">{{ comentario.fecha | date }}</span>
+      </div>
+      <div class="comentario-rating mb-2">
+        <span *ngFor="let i of [1,2,3,4,5]; let idx = index" class="star" [class.filled]="idx < +comentario.calificacion">
+          ★
+        </span>
+      </div>
+      <p class="comentario-text">{{ comentario.contenido }}</p>
+    </mat-card>
+  </div>
+</div>

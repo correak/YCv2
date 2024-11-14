@@ -1,0 +1,13 @@
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #ffffff !important;
+  margin-right: 15px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.btn-light {
+  color: #f2792d;
+}

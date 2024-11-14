@@ -1,0 +1,66 @@
+<div class="container my-3">
+  <div class="row g-2 align-items-center">
+    <!-- Botón Mostrar Todos -->
+    <div class="col-auto">
+      <button class="filter-button btn" [routerLink]="['/universitario/inmueblesU/todosInmueblesU']">Mostrar Todos</button>
+    </div>
+    <div class="col-auto">
+      <button class="filter-button btn" [routerLink]="['/universitario/inmueblesU/inmueblesOrdCalificacionU']">Ordenar por Calificación</button>
+    </div>
+
+    <div class="col-auto">
+      <button class="filter-button btn" [routerLink]="['/universitario/inmueblesU/inmuebleOrdFechaU']">Más Recientes</button>
+    </div>
+    <!-- Filtro Universidad -->
+    <div class="col-auto">
+      <mat-form-field appearance="outline" class="filter-combo">
+        <mat-label>Universidad</mat-label>
+        <mat-select (selectionChange)="filtrarInmueblesPorUniversidad($event.value)">
+          <mat-option *ngFor="let universidad of universidades" [value]="universidad.nombre">
+            {{ universidad.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- Filtro por Tipo de Inmueble -->
+    <div class="col-auto">
+      <mat-form-field appearance="outline" class="filter-combo">
+        <mat-label>Tipo de Inmueble</mat-label>
+        <mat-select (selectionChange)="filtrarInmueblesPorTipo($event.value)">
+          <mat-option value="Cuarto">Cuarto</mat-option>
+          <mat-option value="Departamento">Departamento</mat-option>
+          <mat-option value="Casa">Casa</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- Filtro Precio -->
+    <div class="col-auto">
+      <mat-form-field appearance="outline" class="filter-combo">
+        <mat-label>Precio Mínimo</mat-label>
+        <input matInput type="number" [(ngModel)]="precioMin" placeholder="Mínimo">
+      </mat-form-field>
+    </div>
+    <div class="col-auto">
+      <mat-form-field appearance="outline" class="filter-combo">
+        <mat-label>Precio Máximo</mat-label>
+        <input matInput type="number" [(ngModel)]="precioMax" placeholder="Máximo">
+      </mat-form-field>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="filtrarInmueblesPorRango()">Filtrar por Rango</button>
+    </div>
+    <div class="col-auto">
+      <mat-form-field appearance="outline" class="filter-combo">
+        <mat-label>Ordenar por Precio</mat-label>
+        <mat-select (selectionChange)="ordenarInmueblesPorPrecio($event.value)">
+          <mat-option value="ascendente">Menor a Mayor</mat-option>
+          <mat-option value="descendente">Mayor a Menor</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div>
+  <router-outlet/>
+
+</div>

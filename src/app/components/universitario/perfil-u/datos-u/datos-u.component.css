@@ -1,0 +1,47 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+h2 {
+  color: #f2792d;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #fdf6e3;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h3 {
+  color: #333;
+}
+
+p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Botón de actualizar */
+.update-button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #d2691e;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.update-button mat-icon {
+  margin-right: 5px;
+}
+
+.update-button:hover {
+  background-color: #b85b17;
+}

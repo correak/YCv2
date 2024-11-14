@@ -1,0 +1,28 @@
+<div class="inmuebles-container">
+  <h2 class="titulo-carrusel">DESTACADOS</h2>
+
+  <div class="carrusel">
+    <button *ngIf="currentIndex > 0" class="navegacion anterior" (click)="prev()">
+      &larr;
+    </button>
+
+    <div *ngFor="let inmueble of displayedInmuebles" class="tarjeta-inmueble">
+      <mat-card class="text-center p-2">
+        <mat-card-content>
+          <h5 class="direccion-inmueble">{{ inmueble.direccion_Inmueble }}</h5>
+          <p><strong>Precio:</strong> S/. {{ inmueble.precio_Inmueble }}</p>
+          <p><strong>Calificación:</strong> {{ inmueble.promedioCalificaciones }}</p>
+          <p><strong>Universidad:</strong> {{ inmueble.nombreUniversidad }}</p>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-center">
+          <!-- Cambia el botón para redirigir al detalle del inmueble -->
+          <button mat-raised-button color="primary" (click)="verDetalles(inmueble.id_Inmueble)">Ver Más</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <button *ngIf="currentIndex + chunkSize < inmuebles.length" class="navegacion siguiente" (click)="next()">
+      &rarr;
+    </button>
+  </div>
+</div>

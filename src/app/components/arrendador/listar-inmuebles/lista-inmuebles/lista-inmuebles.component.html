@@ -1,0 +1,60 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="arrendadores" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="id_Arrendador">
+      <th mat-header-cell *matHeaderCellDef> id Arrendador </th>
+      <td mat-cell *matCellDef="let element"> {{element.id_Arrendador}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="dni_Arrendador">
+      <th mat-header-cell *matHeaderCellDef> DNI </th>
+      <td mat-cell *matCellDef="let element"> {{element.dni_Arrendador}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nombre_Arrendador">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre_Arrendador}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="telefono_Arrendador">
+      <th mat-header-cell *matHeaderCellDef> Telefono </th>
+      <td mat-cell *matCellDef="let element"> {{element.telefono_Arrendador}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email_Arrendador">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email_Arrendador}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="eliminar">
+      <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" ><span class="material-icons">delete_sweep</span></button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="editar">
+      <th mat-header-cell *matHeaderCellDef> Editar </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary"
+                [routerLink]="['/registrarArrendador',element.id_Arrendador]">
+          <span class="material-icons">update</span>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of properties">
+  </mat-paginator>
+</div>

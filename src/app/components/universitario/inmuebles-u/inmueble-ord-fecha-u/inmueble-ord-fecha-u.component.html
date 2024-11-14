@@ -1,0 +1,38 @@
+<div class="container my-4 listado-inmuebles-container">
+  <h3>Inmuebles Más Recientes</h3>
+
+  <!-- Verificar si hay inmuebles -->
+  <ng-container *ngIf="inmuebles.length > 0; else noDataTemplate">
+    <div *ngFor="let inmueble of inmuebles" class="card mb-4 inmueble-card">
+      <div class="row g-0">
+        <!-- Imagen del inmueble -->
+        <div class="col-md-4">
+          <img src="https://via.placeholder.com/200" class="img-fluid rounded-start" alt="Imagen del Inmueble">
+        </div>
+
+        <!-- Información del inmueble -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">S/. {{ inmueble.precioInmueble }}</h5>
+            <p class="card-text font-weight-bold">{{ inmueble.direccionInmueble }}</p>
+            <p class="card-text">Tipo: {{ inmueble.tipoInmueble }}</p>
+            <p class="card-text">{{ inmueble.descripcionPropiedad }}</p>
+            <p class="card-text"><small class="text-muted">Publicado el {{ inmueble.fechaPublicacion | date }}</small></p>
+
+            <!-- Botones de acciones -->
+            <div class="d-flex align-items-center mt-3">
+              <button class="btn btn-primary me-2" (click)="verDetalles(inmueble.idInmueble)">Ver más</button>
+              <button class="btn btn-secondary me-2"><mat-icon>favorite_border</mat-icon></button>
+              <button class="btn btn-light me-2"><mat-icon>phone</mat-icon></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Template de mensaje para cuando no hay inmuebles -->
+  <ng-template #noDataTemplate>
+    <p class="text-center text-muted">No hay inmuebles disponibles en este momento.</p>
+  </ng-template>
+</div>

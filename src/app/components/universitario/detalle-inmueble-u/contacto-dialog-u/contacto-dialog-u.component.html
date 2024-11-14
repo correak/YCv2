@@ -1,0 +1,9 @@
+<h2 mat-dialog-title class="text-center">INFORMACIÓN DE CONTACTO</h2>
+<div mat-dialog-content class="text-center">
+  <p><strong>NOMBRE:</strong> {{ data.nombre }}</p>
+  <p><strong>TELÉFONO:</strong> {{ data.telefono }}</p>
+  <p><strong>CORREO:</strong> {{ data.correo }}</p>
+</div>
+<div mat-dialog-actions class="text-center">
+  <button mat-raised-button color="accent" (click)="onClose()">Cerrar</button>
+</div>

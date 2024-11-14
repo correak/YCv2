@@ -1,0 +1,31 @@
+<button [routerLink]="'/home'"> INICIO</button>
+
+<mat-card class="example-card">
+  <form [formGroup]="arrendadorForm" class="form-container">
+
+    <mat-form-field appearance="fill">
+      <mat-label>DNI</mat-label>
+      <input matInput formControlName="dni_Arrendador" placeholder="Ingrese su dni" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre_Arrendador" placeholder="Ingrese su nombre" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefono</mat-label>
+      <input matInput formControlName="telefono_Arrendador" placeholder="Ingrese su telefono" />
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email_Arrendador" placeholder="Ingrese su email" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+  </form>
+</mat-card>
+
+

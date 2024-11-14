@@ -1,0 +1,74 @@
+<button [routerLink]="'/home'"> INICIO</button>
+
+<mat-card class="example-card">
+
+  <form [formGroup]="inmuebleForm" class="form-container">
+
+        <!-- Dirección del Inmueble -->
+        <mat-form-field appearance="fill">
+          <mat-label>Dirección del Inmueble</mat-label>
+          <input matInput formControlName="direccion_Inmueble" placeholder="Ingrese la dirección" required>
+        </mat-form-field>
+
+
+        <!-- Tipo de Inmueble -->
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo de Inmueble</mat-label>
+          <mat-select formControlName="tipo_Inmueble" required>
+            <mat-option value="Casa">Casa</mat-option>
+            <mat-option value="Departamento">Departamento</mat-option>
+            <mat-option value="Cuarto">Cuarto</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Precio del Inmueble -->
+        <mat-form-field appearance="fill">
+          <mat-label>Precio del Inmueble</mat-label>
+          <input matInput type="number" formControlName="precio_Inmueble" placeholder="Ingrese el precio" required>
+        </mat-form-field>
+
+        <!-- Descripción de la Propiedad -->
+        <mat-form-field appearance="fill">
+          <mat-label>Descripción de la Propiedad</mat-label>
+          <textarea matInput formControlName="descripcion_Propiedad" placeholder="Ingrese una descripción"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Estado de la Propiedad</mat-label>
+          <mat-select formControlName="estado_Propiedad" required>
+            <mat-option value="Disponible">Disponible</mat-option>
+            <mat-option value="No Disponible">No Disponible</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Arrendador (ComboBox) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Arrendador</mat-label>
+          <mat-select formControlName="arrendador" required>
+            <mat-option *ngFor="let arrendador of arrendadores" [value]="arrendador">
+              {{ arrendador.nombre_Arrendador }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Universidad (ComboBox) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Universidad</mat-label>
+          <mat-select formControlName="universidad" required>
+            <mat-option *ngFor="let universidad of universidades" [value]="universidad">
+              {{ universidad.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Fecha de Publicación (Fecha actual, no editable) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de Publicación</mat-label>
+          <input matInput formControlName="fechaPublicacion" [value]="fechaActual" readonly>
+        </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+      </mat-card-actions>
+  </form>
+</mat-card>

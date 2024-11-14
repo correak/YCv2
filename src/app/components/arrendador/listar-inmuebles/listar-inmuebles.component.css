@@ -1,0 +1,20 @@
+.mat-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-content {
+  padding: 16px;
+}
+
+.mat-expansion-panel-header {
+  font-weight: bold;
+}
+
+button.mat-raised-button {
+  width: 100px;
+}
+
+.fil{
+  margin-bottom: 16px;
+}

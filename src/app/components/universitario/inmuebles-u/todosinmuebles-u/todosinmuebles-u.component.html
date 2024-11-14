@@ -1,0 +1,26 @@
+<div class="container my-4 listado-inmuebles-container">
+  <h3>Todos los Inmuebles</h3>
+  <div *ngFor="let inmueble of inmuebles" class="card mb-4 inmueble-card">
+    <div class="row g-0">
+      <!-- Imagen del inmueble -->
+      <div class="col-md-4">
+      </div>
+      <!-- Información del inmueble -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">s/. {{ inmueble.precio_Inmueble }}</h5>
+          <p class="card-text">{{ inmueble.direccion_Inmueble }}</p>
+          <p class="card-text">{{ inmueble.universidad.nombre || 'Universidad no especificada' }}, {{ inmueble.tipo_Inmueble }}</p>
+          <p class="card-text">{{ inmueble.descripcion_Propiedad }}</p>
+
+          <!-- Botones de acciones -->
+          <div class="d-flex align-items-center">
+            <button class="btn btn-primary me-2" (click)="verDetalles(inmueble.id_Inmueble)">Ver más</button>
+            <button class="btn btn-secondary me-2"><mat-icon>favorite_border</mat-icon></button>
+            <button class="btn btn-light me-2"><mat-icon>phone</mat-icon></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

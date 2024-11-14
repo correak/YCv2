@@ -1,0 +1,42 @@
+<h2 mat-dialog-title class="text-center mb-3">Reservar</h2>
+
+<div mat-dialog-content class="p-4">
+  <!-- Información del Inmueble -->
+  <div class="text-center mb-3">
+    <p class="mb-1"><strong>Dirección del Inmueble:</strong></p>
+    <p class="text-muted">{{ data.inmueble.direccion_Inmueble }}</p>
+  </div>
+
+  <!-- Formulario de Reserva -->
+  <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+    <!-- Campo de Fecha -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Fecha</mat-label>
+      <input matInput formControlName="fecha" [matDatepicker]="picker" readonly>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Campo de Descripción -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" required />
+    </mat-form-field>
+
+    <!-- Combo Box para Universitario -->
+    <mat-form-field appearance="outline" class="w-100 mb-4">
+      <mat-label>Universitario</mat-label>
+      <mat-select formControlName="universitario" required>
+        <mat-option *ngFor="let universitario of universitarios" [value]="universitario">
+          {{ universitario.nombre_Universitario }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Botones de acción -->
+    <div class="d-flex justify-content-around mt-3">
+      <button mat-raised-button class="color-enviar px-5" type="submit" [disabled]="reservaForm.invalid">Enviar</button>
+      <button mat-stroked-button class="color-cancelar px-5" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>

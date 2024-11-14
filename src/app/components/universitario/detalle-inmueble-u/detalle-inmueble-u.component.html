@@ -1,0 +1,79 @@
+<div class="container my-4">
+  <div class="text-center mb-4">
+    <h2 class="display-5">{{ inmueble?.direccion_Inmueble }}</h2>
+  </div>
+
+  <div class="row">
+    <!-- Imágenes del inmueble -->
+    <div class="col-md-6 mb-4">
+      <div class="imagenes-container d-flex justify-content-center">
+
+      </div>
+      <p class="text-center mt-2">{{ inmueble?.tipo_Inmueble }} </p>
+    </div>
+
+    <!-- Información del inmueble -->
+    <div class="col-md-6">
+      <mat-card class="mb-3 shadow-sm">
+        <mat-card-header>
+          <mat-card-title>Detalles del Inmueble</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Precio:</strong> S/. {{ inmueble?.precio_Inmueble }}</p>
+          <p><strong>Tipo:</strong> {{ inmueble?.tipo_Inmueble }}</p>
+          <p><strong>Estado:</strong> {{ inmueble?.estado_Propiedad }}</p>
+          <p><strong>Fecha de Publicación:</strong> {{ inmueble?.fechaPublicacion | date }}</p>
+          <p><strong>Universidad:</strong> {{ inmueble?.universidad?.nombre || 'No especificada' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Reseñas -->
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="mb-3 shadow-sm">
+        <mat-card-header>
+          <mat-card-title>Reseñas ({{ comentarios.length || 0 }})</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngFor="let comentario of comentarios" class="mb-3">
+            <p><strong>{{ comentario.nombreUniversitario }}</strong> - {{ comentario.fecha | date }}</p>
+            <p>Calificación: {{ comentario.calificacion }} ★</p>
+            <p>{{ comentario.contenido }}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-between">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/universitario/inmuebleU', inmueble?.id_Inmueble, 'comentarios']"
+          >
+            Ver todas las reseñas
+          </button>
+          <button mat-raised-button color="primary" (click)="openComentarDialog()">Comentar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Información Adicional y Botones de Acción -->
+    <div class="col-md-6">
+      <mat-card class="mb-3 shadow-sm">
+        <mat-card-header>
+          <mat-card-title>Descripción Adicional</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ inmueble?.descripcion_Propiedad }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="d-flex justify-content-around mt-3">
+        <button mat-raised-button color="primary" (click)="openComentarDialog()">Reservar</button>
+        <button mat-raised-button color="warn" (click)="openContactoDialog()">Contactar</button>
+        <button mat-raised-button color="success">
+          <mat-icon>whatsapp</mat-icon> WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

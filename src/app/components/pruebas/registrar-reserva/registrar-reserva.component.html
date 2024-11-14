@@ -1,0 +1,60 @@
+<button [routerLink]="'/home'"> INICIO</button>
+
+<mat-card class="example-card">
+  <form [formGroup]="reservaForm" class="form-container">
+      <mat-card-title>Registrar Reserva</mat-card-title>
+      <mat-card-content>
+
+        <!-- Seleccionar Inmueble -->
+        <mat-form-field appearance="fill">
+          <mat-label>Inmueble</mat-label>
+          <mat-select formControlName="inmueble" (selectionChange)="mostrarInmueble($event.value)" required>
+            <mat-option *ngFor="let inmueble of inmuebles" [value]="inmueble">
+              {{ inmueble.direccion_Inmueble }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Información del Inmueble Seleccionado -->
+        <mat-card *ngIf="inmuebleSeleccionado" class="info-card">
+          <p><strong>Dirección:</strong> {{ inmuebleSeleccionado.direccion_Inmueble }}</p>
+          <p><strong>Tipo:</strong> {{ inmuebleSeleccionado.tipo_Inmueble }}</p>
+          <p><strong>Precio:</strong> {{ inmuebleSeleccionado.precio_Inmueble | currency }}</p>
+          <p><strong>Estado:</strong> {{ inmuebleSeleccionado.estado_Propiedad }}</p>
+        </mat-card>
+
+        <!-- Seleccionar Universitario -->
+        <mat-form-field appearance="fill">
+          <mat-label>Universitario</mat-label>
+          <mat-select formControlName="universitario" (selectionChange)="mostrarUniversitario($event.value)" required>
+            <mat-option *ngFor="let universitario of universitarios" [value]="universitario">
+              {{ universitario.nombre_Universitario }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Información del Universitario Seleccionado -->
+        <mat-card *ngIf="universitarioSeleccionado" class="info-card">
+          <p><strong>Nombre:</strong> {{ universitarioSeleccionado.nombre_Universitario }}</p>
+          <p><strong>Email:</strong> {{ universitarioSeleccionado.email_Universitario }}</p>
+          <p><strong>Teléfono:</strong> {{ universitarioSeleccionado.telefono_Universitario }}</p>
+        </mat-card>
+
+        <!-- Fecha de Reserva (Fecha actual, no editable) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de Reserva</mat-label>
+          <input matInput formControlName="fecha_Reserva" [value]="fechaActual" readonly>
+        </mat-form-field>
+
+        <!-- Comentario -->
+        <mat-form-field appearance="fill">
+          <mat-label>Comentario</mat-label>
+          <textarea matInput formControlName="comentario" placeholder="Añade un comentario"></textarea>
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+
+  </form>
+
+</mat-card>

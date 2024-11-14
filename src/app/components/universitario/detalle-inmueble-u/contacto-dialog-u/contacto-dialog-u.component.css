@@ -1,0 +1,8 @@
+.text-center {
+  text-align: center;
+}
+
+button[mat-raised-button] {
+  background-color: #ff7043; /* Color personalizado para el botón */
+  color: white;
+}

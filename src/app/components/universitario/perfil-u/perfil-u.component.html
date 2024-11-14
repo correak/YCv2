@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar de filtros -->
+    <div class="col-md-3 col-lg-2 p-3 sidebar">
+      <h4 class="fw-bold">Filtros</h4>
+      <mat-accordion>
+        <!-- Filtro Inmueble -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Universitario</mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-button class="filter-btn" [routerLink]="['/universitario/perfilU/datosU']">Mis datos</button>
+        </mat-expansion-panel>
+
+        <!-- Filtro Reserva -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Reservas</mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-button class="filter-btn" [routerLink]="['/universitario/perfilU/misReservasU']">Mis reservas</button>
+        </mat-expansion-panel>
+
+        <!-- Filtro Contratos -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Mis comentarios</mat-panel-title>
+          </mat-expansion-panel-header>
+          <button mat-button class="filter-btn" [routerLink]="['/universitario/perfilU/misComU']">Lista de comentarios</button>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+    </div>
+
+    <!-- Lista de contratos -->
+    <div class="col-md-9 col-lg-10 p-3 content">
+      <router-outlet/>
+    </div>
+  </div>
+</div>

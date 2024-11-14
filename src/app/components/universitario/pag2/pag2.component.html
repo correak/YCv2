@@ -1,0 +1,34 @@
+<div class="fondo-buscador">
+  <div class="overlay">
+    <h1 class="titulo">Universitario encuentra donde vivir</h1>
+    <div class="filtros">
+      <mat-form-field appearance="fill" class="filtro">
+        <mat-label>Universidad</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let universidad of universidades" [value]="universidad">
+            {{ universidad.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="filtro">
+        <mat-label>Tipo</mat-label>
+        <mat-select>
+          <mat-option value="departamento">Departamento</mat-option>
+          <mat-option value="cuarto">Cuarto</mat-option>
+          <mat-option value="casa">Casa</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="filtro">
+        <mat-label>Precio</mat-label>
+        <mat-select>
+          <mat-option value="menor">Menor a mayor</mat-option>
+          <mat-option value="mayor">Mayor a menor</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [routerLink]="['/universitario/inmueblesU/todosInmueblesU']" class="boton-buscar">Buscar</button>
+    </div>
+  </div>
+</div>

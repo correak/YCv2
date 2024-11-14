@@ -1,0 +1,48 @@
+<h2 mat-dialog-title class="text-center">Comentar</h2>
+
+<div mat-dialog-content class="p-4">
+  <!-- Dirección del Inmueble -->
+  <div class="text-center mb-3">
+    <p class="mb-1"><strong>Dirección del Inmueble:</strong></p>
+    <p class="text-muted">{{ data.inmuebleDireccion }}</p>
+  </div>
+
+  <!-- Formulario de Comentario -->
+  <form [formGroup]="comentarioForm" (ngSubmit)="onSubmit()">
+    <!-- Campo de Fecha -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Fecha</mat-label>
+      <input matInput formControlName="fecha" [value]="fechaActual | date:'shortDate'" readonly>
+    </mat-form-field>
+
+    <!-- Campo de Contenido -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Contenido</mat-label>
+      <textarea matInput formControlName="contenido" required></textarea>
+    </mat-form-field>
+
+    <!-- Selector de Calificación -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Calificar</mat-label>
+      <mat-select formControlName="calificacion" required>
+        <mat-option *ngFor="let i of [1,2,3,4,5]" [value]="i">{{ i }} ★</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Combo Box para Universitario -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Universitario</mat-label>
+      <mat-select formControlName="universitario" required>
+        <mat-option *ngFor="let universitario of universitarios" [value]="universitario">
+          {{ universitario.nombre_Universitario }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Botones de Acción -->
+    <div mat-dialog-actions class="d-flex justify-content-around mt-3">
+      <button mat-raised-button color="accent" type="submit" class="px-5" [disabled]="comentarioForm.invalid">Enviar</button>
+      <button mat-stroked-button color="primary" (click)="onCancel()" class="px-5">Cancelar</button>
+    </div>
+  </form>
+</div>

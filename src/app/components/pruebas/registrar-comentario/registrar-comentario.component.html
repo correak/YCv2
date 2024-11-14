@@ -1,0 +1,54 @@
+
+<button [routerLink]="'/home'"> INICIO</button>
+<mat-card class="example-card">
+  <form [formGroup]="comentarioForm"  class="form-container">
+    <mat-card class="mat-elevation-z8">
+      <!-- Seleccionar Inmueble -->
+      <mat-form-field appearance="fill">
+        <mat-label>Inmueble</mat-label>
+        <mat-select formControlName="inmueble" required>
+          <mat-option *ngFor="let inmueble of inmuebles" [value]="inmueble">
+            {{ inmueble.direccion_Inmueble }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Seleccionar Universitario -->
+      <mat-form-field appearance="fill">
+        <mat-label>Universitario</mat-label>
+        <mat-select formControlName="universitario" required>
+          <mat-option *ngFor="let universitario of universitarios" [value]="universitario">
+            {{ universitario.nombre_Universitario }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Calificación -->
+      <mat-form-field appearance="fill">
+        <mat-label>Calificación</mat-label>
+        <mat-select formControlName="calificacion" required>
+          <mat-option *ngFor="let calificacion of calificaciones" [value]="calificacion">
+            {{ calificacion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Fecha (actual y no editable) -->
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput formControlName="fecha" [value]="fechaActual" readonly>
+      </mat-form-field>
+
+      <!-- Contenido del Comentario -->
+      <mat-form-field appearance="fill">
+        <mat-label>Contenido del Comentario</mat-label>
+        <textarea matInput formControlName="contenido" placeholder="Ingrese el comentario" required></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+
+    </mat-card>
+  </form>
+</mat-card>
+
+

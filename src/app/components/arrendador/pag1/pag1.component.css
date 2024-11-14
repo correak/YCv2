@@ -1,0 +1,45 @@
+.fondo-buscador {
+  position: relative;
+  background-image: url('https://png.pngtree.com/background/20240226/original/pngtree-contemporary-office-space-in-a-chic-home-with-dual-laptop-mockups-picture-image_7847738.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.titulo {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filtro {
+  width: 150px;
+}
+
+.boton-buscar {
+  background-color: #FF6600;
+  color: white;
+}

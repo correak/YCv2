@@ -1,0 +1,21 @@
+<h2>Modificar Datos del Universitario</h2>
+<form>
+  <div class="form-group mb-3">
+    <label for="dni">DNI</label>
+    <input type="number" id="dni" [(ngModel)]="data.dni_Universitario" class="form-control" name="dni" required />
+  </div>
+  <div class="form-group mb-3">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" [(ngModel)]="data.nombre_Universitario" class="form-control" name="nombre" required />
+  </div>
+  <div class="form-group mb-3">
+    <label for="email">Email</label>
+    <input type="email" id="email" [(ngModel)]="data.email_Universitario" class="form-control" name="email" required />
+  </div>
+  <div class="form-group mb-3">
+    <label for="telefono">Teléfono</label>
+    <input type="text" id="telefono" [(ngModel)]="data.telefono_Universitario" class="form-control" name="telefono" required />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+</form>

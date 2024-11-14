@@ -1,0 +1,38 @@
+<button [routerLink]="'/home'"> INICIO</button>
+<mat-card class="example-card">
+  <form [formGroup]="contratoForm"  class="form-container">
+
+        <!-- Seleccionar Reserva -->
+        <mat-form-field appearance="fill">
+          <mat-label>Reserva</mat-label>
+          <mat-select formControlName="reserva" (selectionChange)="mostrarReserva($event.value)" required>
+            <mat-option *ngFor="let reserva of reservas" [value]="reserva">
+              {{ reserva.id_Reserva }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Información de la Reserva Seleccionada -->
+        <mat-card *ngIf="reservaSeleccionada" class="info-card">
+          <p><strong>Fecha de Reserva:</strong> {{ reservaSeleccionada.fecha_Reserva | date }}</p>
+          <p><strong>Comentario:</strong> {{ reservaSeleccionada.comentario }}</p>
+          <p><strong>Universitario:</strong> {{ reservaSeleccionada.universitario.nombre_Universitario }}</p>
+          <p><strong>Inmueble:</strong> {{ reservaSeleccionada.inmueble.direccion_Inmueble }}</p>
+        </mat-card>
+
+        <!-- Fecha del Contrato (Fecha actual, no editable) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha del Contrato</mat-label>
+          <input matInput formControlName="fecha_Contrato" [value]="fechaActual" readonly>
+        </mat-form-field>
+
+        <!-- Comentario del Contrato -->
+        <mat-form-field appearance="fill">
+          <mat-label>Comentario</mat-label>
+          <textarea matInput formControlName="comentario" placeholder="Añade un comentario"></textarea>
+        </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+
+  </form>
+
+</mat-card>

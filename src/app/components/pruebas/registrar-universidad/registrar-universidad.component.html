@@ -1,0 +1,19 @@
+<button [routerLink]="'/home'"> INICIO</button>
+
+<mat-card class="example-card">
+  <form [formGroup]="universidadForm" class="form-container">
+    <mat-form-field appearance="fill">
+      <mat-label>UNIVERSIDAD</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ingrese su nombre" />
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>SEDE</mat-label>
+      <input matInput formControlName="sede_Universidad" placeholder="Ingrese la sede" />
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+  </form>
+</mat-card>

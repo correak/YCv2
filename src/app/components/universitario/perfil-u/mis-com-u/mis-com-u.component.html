@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <label for="universitario">Seleccione un Universitario:</label>
+  <select id="universitario" class="form-select mb-3" (change)="onUniversitarioChange($event)">
+    <option *ngFor="let universitario of universitarios" [value]="universitario.id_Universitario">
+      {{ universitario.nombre_Universitario }}
+    </option>
+  </select>
+
+  <div *ngIf="comentarios && comentarios.length > 0" class="mt-4">
+    <h3>Comentarios del Universitario Seleccionado</h3>
+    <ul class="list-group">
+      <li *ngFor="let comentario of comentarios" class="list-group-item">
+        <p><strong>ID de Comentario:</strong> {{ comentario.id_Comentario }}</p>
+        <p><strong>Contenido:</strong> {{ comentario.contenido }}</p>
+        <p><strong>Calificación:</strong> {{ comentario.calificacion }}</p>
+        <p><strong>Fecha:</strong> {{ comentario.fecha | date }}</p>
+        <p><strong>Dirección Inmueble:</strong> {{ comentario.direccionInmueble }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="comentarios && comentarios.length === 0" class="mt-4">
+    <p class="text-muted">No hay comentarios para este universitario.</p>
+  </div>
+</div>

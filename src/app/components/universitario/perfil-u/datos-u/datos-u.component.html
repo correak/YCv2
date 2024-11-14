@@ -1,0 +1,27 @@
+<div class="container my-4">
+  <h2 class="text-center">Seleccione un Universitario</h2>
+
+  <!-- Combo box para seleccionar un universitario -->
+  <div class="form-group mb-4">
+    <label for="universitarioSelect">Universitario</label>
+    <select
+      id="universitarioSelect"
+      class="form-control"
+      [(ngModel)]="selectedUniversitarioId"
+      (change)="fetchUniversitarioDetails()"
+    >
+      <option *ngFor="let universitario of universitarios" [value]="universitario.id_Universitario">
+        {{ universitario.nombre_Universitario }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Detalles del universitario seleccionado -->
+  <div *ngIf="universitario">
+    <h2>Detalles del Universitario</h2>
+    <p><strong>Nombre:</strong> {{ universitario.nombre_Universitario }}</p>
+    <p><strong>Email:</strong> {{ universitario.email_Universitario }}</p>
+    <p><strong>Teléfono:</strong> {{ universitario.telefono_Universitario }}</p>
+    <button (click)="onUpdateClick()" class="btn btn-primary mt-2">Modificar Datos</button>
+  </div>
+</div>

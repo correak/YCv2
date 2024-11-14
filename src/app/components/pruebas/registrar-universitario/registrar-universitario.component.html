@@ -1,0 +1,33 @@
+<button [routerLink]="'/home'"> INICIO</button>
+<mat-card class="example-card">
+  <form [formGroup]="universitarioForm"  class="form-container">
+
+    <!-- DNI del Universitario -->
+    <mat-form-field appearance="fill">
+      <mat-label>DNI del Universitario</mat-label>
+      <input matInput formControlName="dni_Universitario" type="number" placeholder="Ingrese el DNI" required>
+    </mat-form-field>
+
+    <!-- Nombre del Universitario -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Universitario</mat-label>
+      <input matInput formControlName="nombre_Universitario" placeholder="Ingrese el nombre" required>
+    </mat-form-field>
+
+    <!-- Email del Universitario -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email del Universitario</mat-label>
+      <input matInput formControlName="email_Universitario" type="email" placeholder="Ingrese el email" required>
+    </mat-form-field>
+
+    <!-- Teléfono del Universitario -->
+    <mat-form-field appearance="fill">
+      <mat-label>Teléfono del Universitario</mat-label>
+      <input matInput formControlName="telefono_Universitario" type="tel" placeholder="Ingrese el teléfono" required>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" (click)="onSubmit() ">Registrar</button>
+  </form>
+</mat-card>
+

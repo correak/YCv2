@@ -1,0 +1,27 @@
+.container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.img-fluid {
+  max-height: 400px;
+}
+
+.mat-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.mat-card-content p {
+  margin: 0;
+}
+
+.mat-card-actions button {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+  gap: 10px;
+}

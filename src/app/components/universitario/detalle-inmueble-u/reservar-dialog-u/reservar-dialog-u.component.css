@@ -1,0 +1,44 @@
+/* Título centrado */
+.text-center {
+  text-align: center;
+}
+
+/* Título de diálogo */
+.mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Campos de entrada */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Colores personalizados */
+.text-muted {
+  color: #6c757d;
+}
+
+.mat-raised-button.color-enviar {
+  background-color: #FF7F50; /* Color naranja */
+  color: #ffffff;
+}
+
+.mat-stroked-button.color-cancelar {
+  border-color: #4A4A4A; /* Gris oscuro para el borde */
+  color: #4A4A4A;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.px-5 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.mat-form-field-outline {
+  border-color: #4A4A4A; /* Gris oscuro para los bordes del campo */
+}

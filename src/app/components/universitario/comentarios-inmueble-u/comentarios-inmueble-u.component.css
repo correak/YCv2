@@ -1,0 +1,35 @@
+.comentarios-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.comentario-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentario-header {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.comentario-rating .star {
+  font-size: 1.2rem;
+  color: lightslategrey; /* Color de estrella */
+}
+
+.comentario-rating .star.filled {
+  color: #ffa500; /* Estrellas llenas de color naranja */
+}
+
+.comentario-text {
+  margin-top: 10px;
+  color: #333;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+  color: #888;
+}

@@ -1,0 +1,52 @@
+.listado-inmuebles-container {
+  background-color: #fdf6e3; /* Fondo crema casi blanco */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.inmueble-card {
+  background-color: #ececec; /* Fondo gris claro para cada tarjeta */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.rating .star {
+  font-size: 1.2rem;
+  color: #ffa500; /* Color de estrella */
+}
+
+.star.filled {
+  color: #ffa500; /* Estrellas llenas de color naranja */
+}
+
+.star {
+  color: #ccc; /* Estrellas vacías de color gris claro */
+}
+
+.btn-primary {
+  background-color: #d2691e; /* Color naranja oscuro para el botón "Reservar" */
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #444; /* Color gris oscuro */
+  color: white;
+  border: none;
+}
+
+.btn-light {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #444;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-light:hover {
+  opacity: 0.9;
+}

@@ -6,5 +6,5 @@ export class Reserva {
   fecha_Reserva: Date;
   comentario: string;
   universitario: Universitario;
-  inmueble: Inmueble;
+  inmueble: Inmueble = new Inmueble()
 }

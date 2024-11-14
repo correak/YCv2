@@ -72,8 +72,7 @@ export class ReservarDialogUComponent {
     private fb: FormBuilder,
     private universitarioService: UniversitarioService,
     private reservaService: ReservaService,
-    private snackBar: MatSnackBar
-) {
+    private snackBar: MatSnackBar) {
     this.reservaForm = this.fb.group({
       fecha: [this.fechaActual, Validators.required],
       descripcion: ['', Validators.required],

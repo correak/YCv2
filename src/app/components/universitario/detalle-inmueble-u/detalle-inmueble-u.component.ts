@@ -34,6 +34,7 @@ import {ContactoDialogUComponent} from './contacto-dialog-u/contacto-dialog-u.co
 import {HU10Dto} from '../../../model/hu10-dto';
 import {CarruselDestacadosComponent} from '../../arrendador/carrusel-destacados/carrusel-destacados.component';
 import {CarruselDestacadosUComponent} from '../carrusel-destacados-u/carrusel-destacados-u.component';
+import {Reserva} from '../../../model/reserva';
 
 @Component({
   selector: 'app-detalle-inmueble-u',
@@ -131,28 +132,20 @@ export class DetalleInmuebleUComponent {
   }
 
 
-  openReservarDialog(): void {
-    const dialogRef = this.dialog.open(ReservarDialogUComponent, {
-      width: '400px',
-      data: {
-        inmuebleDireccion: this.inmueble?.direccion_Inmueble,
-        inmuebleId: this.inmueble?.id_Inmueble
-      }
-    });
+  openReservaDialog(): void {
+    if (this.inmueble) {
+      const dialogRef = this.dialog.open(ReservarDialogUComponent, {
+        width: '400px',
+        data: { inmueble: this.inmueble }
+      });
 
-    dialogRef.afterClosed().subscribe((nuevoComentario: Comentario) => {
-      if (nuevoComentario) {
-        // Crear un nuevo objeto HU8Dto con los datos de Comentario
-        const comentario: HU8Dto = {
-          id_Comentario: nuevoComentario.id_Comentario,
-          contenido: nuevoComentario.contenido,
-          calificacion: nuevoComentario.calificacion.toString(), // Convertir calificación a string si es necesario
-          fecha: nuevoComentario.fecha,
-          nombreUniversitario: nuevoComentario.universitario.nombre_Universitario
-        };
-        this.comentarios.push(comentario); // Agregar el nuevo comentario a la lista
-      }
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          console.log('Reserva realizada con éxito');
+          // Lógica adicional si es necesario, por ejemplo, recargar reservas
+        }
+      });
+    }
   }
 
   openContactoDialog(): void {

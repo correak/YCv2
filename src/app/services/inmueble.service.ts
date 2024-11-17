@@ -12,6 +12,7 @@ import {HU14Dto} from '../model/hu14-dto';
 import {HU16Dto} from '../model/hu16-dto';
 import {HU13Dto} from '../model/hu13-dto';
 import {HU29Dto} from '../model/hu29-dto';
+import {HU18Dto} from '../model/hu18-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,7 @@ export class InmuebleService {
   getInmueblesPorTipo(tipoInmueble: string): Observable<HU14Dto[]> {
     return this.http.get<HU14Dto[]>(`${this.url}/inmuebles/tipo-propiedad/${tipoInmueble}`);
   }
+
   getInmueblesOrdenadosPorFechaPublicacion(): Observable<HU16Dto[]> {
     return this.http.get<HU16Dto[]>(`${this.url}/inmuebles/ordenados-por-fecha`);
   }
@@ -56,5 +58,10 @@ export class InmuebleService {
   // Obtener inmuebles ordenados por precio descendente
   getInmueblesOrdenadosPorPrecioDescendente(): Observable<HU29Dto[]> {
     return this.http.get<HU29Dto[]>(`${this.url}/inmuebles/ordenados-por-precio-descendente`);
+  }
+
+  // Obtener inmuebles por el ID del Arrendador
+  getInmueblesPorArrendador(arrendadorId: number): Observable<HU18Dto[]> {
+    return this.http.get<HU18Dto[]>(`${this.url}/inmuebles/arrendador/${arrendadorId}`);
   }
 }

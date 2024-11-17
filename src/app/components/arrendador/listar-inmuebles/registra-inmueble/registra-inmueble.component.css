@@ -1,10 +1,52 @@
+/* Contenedor principal */
+.form-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el formulario y el título */
+  margin-top: 20px;
+}
+
+/* Estilo del título */
+.form-title {
+  color: #ff6f00; /* Color del navbar */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+/* Ajustes para el formulario */
 .example-card {
-  margin: 0 auto;
   width: 600px;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  gap: 15px; /* Espaciado entre los campos del formulario */
 }
 
+mat-form-field {
+  width: 100%;
+}
+/* Centrar el botón en el formulario */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el botón */
+  margin-top: 20px; /* Añade un margen superior */
+}
+
+/* Estilo del botón */
+.custom-button {
+  background-color: #ff6f00; /* Color naranja */
+  color: white; /* Texto blanco */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 16px; /* Tamaño de la fuente */
+  padding: 10px 20px; /* Tamaño del botón */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Efecto hover */
+.custom-button:hover {
+  background-color: #e65c00; /* Naranja más oscuro al pasar el mouse */
+}

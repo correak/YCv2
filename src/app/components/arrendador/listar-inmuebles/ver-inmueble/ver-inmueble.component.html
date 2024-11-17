@@ -1,6 +1,42 @@
-<div>
-  <h3 class="mb-4">Mis Avisos</h3>
+<div class="container">
+  <!-- Lista desplegable para seleccionar un arrendador -->
+  <mat-form-field appearance="fill" class="arrendador-select">
+    <mat-label>Seleccionar Arrendador</mat-label>
+    <mat-select (selectionChange)="onArrendadorChange($event.value)">
+      <mat-option *ngFor="let arrendador of arrendadores" [value]="arrendador.id_Arrendador">
+        {{ arrendador.nombre_Arrendador }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <!-- Título de la tabla -->
+  <h2 *ngIf="inmuebles.length > 0" class="table-title">
+    Inmuebles encontrados para el arrendador
+  </h2>
 
+  <!-- Tabla para mostrar los inmuebles -->
+  <table mat-table [dataSource]="inmuebles" class="mat-elevation-z8">
+    <ng-container matColumnDef="direccionInmueble">
+      <th *matHeaderCellDef mat-header-cell> Dirección </th>
+      <td mat-cell *matCellDef="let inmueble"> {{ inmueble.direccionInmueble }} </td>
+    </ng-container>
 
+    <ng-container matColumnDef="tipoInmueble">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let inmueble"> {{ inmueble.tipoInmueble }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioInmueble">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let inmueble"> {{ inmueble.precioInmueble | currency:'USD':'symbol':'1.2-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estadoPropiedad">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let inmueble"> {{ inmueble.estadoPropiedad }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

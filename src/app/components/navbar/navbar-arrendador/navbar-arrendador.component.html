@@ -21,7 +21,15 @@
           <a class="nav-link text-white" href="#">Cuartos</a>
         </li>
       </ul>
-      <button mat-button color="accent" class="btn" [routerLink]="'/arrendador/listar-inmuebles/verInmueble'">Publicar</button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="text-white ms-3">
+        <mat-icon>person</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/arrendador/listar-inmuebles/verInmueble']" >Perfil Arrendador</button>
+      </mat-menu>
+
     </div>
   </div>
 </nav>

@@ -1,18 +1,19 @@
-import {Component, inject} from '@angular/core';
-import {RouterLink} from '@angular/router';
-import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from '@angular/material/card';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
-import {MatInput, MatInputModule} from '@angular/material/input';
-import {MatSelect, MatSelectModule} from '@angular/material/select';
-import {MatOption} from '@angular/material/core';
-import {MatButton} from '@angular/material/button';
-import {Arrendador} from '../../../model/arrendador';
-import {Universidad} from '../../../model/universidad';
-import {ArrendadorService} from '../../../services/arrendador.service';
-import {UniversidadService} from '../../../services/universidad.service';
-import {InmuebleService} from '../../../services/inmueble.service';
-import {CommonModule} from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar'; // Importación de MatSnackBar
+import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatOption } from '@angular/material/core';
+import { MatButton } from '@angular/material/button';
+import { Arrendador } from '../../../model/arrendador';
+import { Universidad } from '../../../model/universidad';
+import { ArrendadorService } from '../../../services/arrendador.service';
+import { UniversidadService } from '../../../services/universidad.service';
+import { InmuebleService } from '../../../services/inmueble.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-registrar-inmueble',
@@ -36,9 +37,10 @@ import {CommonModule} from '@angular/common';
     MatCardContent,
     MatOption,
     CommonModule,
+    MatSnackBarModule,
   ],
   templateUrl: './registrar-inmueble.component.html',
-  styleUrl: './registrar-inmueble.component.css'
+  styleUrls: ['./registrar-inmueble.component.css'], // Cambiar styleUrl a styleUrls
 })
 export class RegistrarInmuebleComponent {
   inmuebleForm: FormGroup;
@@ -46,12 +48,13 @@ export class RegistrarInmuebleComponent {
   universidades: Universidad[] = [];
   fechaActual: string = new Date().toISOString().split('T')[0]; // Fecha actual en formato YYYY-MM-DD
 
-  private fb = inject(FormBuilder);
-  private arrendadorService = inject(ArrendadorService);
-  private universidadService = inject(UniversidadService);
-  private inmuebleService = inject(InmuebleService);
-
-  constructor() {
+  constructor(
+    private fb: FormBuilder,
+    private arrendadorService: ArrendadorService,
+    private universidadService: UniversidadService,
+    private inmuebleService: InmuebleService,
+    private snackBar: MatSnackBar // Inyección del MatSnackBar
+  ) {
     this.inmuebleForm = this.fb.group({
       direccion_Inmueble: ['', Validators.required],
       tipo_Inmueble: ['', Validators.required],
@@ -60,20 +63,23 @@ export class RegistrarInmuebleComponent {
       estado_Propiedad: ['', Validators.required],
       arrendador: ['', Validators.required],
       universidad: ['', Validators.required],
-      fechaPublicacion: [this.fechaActual, Validators.required]
+      fechaPublicacion: [this.fechaActual, Validators.required],
     });
   }
+
   ngOnInit(): void {
     this.cargarArrendadores();
     this.cargarUniversidades();
   }
+
   cargarArrendadores() {
-    this.arrendadorService.getArrendadores().subscribe(arrendadores => {
+    this.arrendadorService.getArrendadores().subscribe((arrendadores) => {
       this.arrendadores = arrendadores;
     });
   }
+
   cargarUniversidades() {
-    this.universidadService.getUniversidades().subscribe(universidades => {
+    this.universidadService.getUniversidades().subscribe((universidades) => {
       this.universidades = universidades;
     });
   }
@@ -85,4 +91,6 @@ export class RegistrarInmuebleComponent {
       });
     }
   }
+
+
 }

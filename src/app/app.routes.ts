@@ -71,6 +71,9 @@ import {PerfilUComponent} from './components/universitario/perfil-u/perfil-u.com
 import {DatosUComponent} from './components/universitario/perfil-u/datos-u/datos-u.component';
 import {MisReservasUComponent} from './components/universitario/perfil-u/mis-reservas-u/mis-reservas-u.component';
 import {MisComUComponent} from './components/universitario/perfil-u/mis-com-u/mis-com-u.component';
+import {
+  RegistraInmuebleComponent
+} from './components/arrendador/listar-inmuebles/registra-inmueble/registra-inmueble.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -80,6 +83,7 @@ export const routes: Routes = [
     {path: 'inicio',component: InicioComponent},
     {path: 'universidades',component:UniverisdadesArrendadorComponent},
     {path:'listar-inmuebles',component:ListarInmueblesComponent, children: [
+        {path: 'registraInmueble',component:RegistraInmuebleComponent},
         {path: 'verInmueble',component:VerInmuebleComponent},
         {path: 'listaInmueble',component:ListaInmueblesComponent},
         {path: 'contarInmueble', component:ContarInmuebleComponent},
@@ -88,6 +92,7 @@ export const routes: Routes = [
         {path: 'listaContrato', component: ListaContratosComponent},
         {path: 'busquedaContrato', component: BusquedaContratoComponent},
         {path: 'registraContrato', component: RegistraContratoComponent},
+
       ]}
     ]},
 

@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Editar Inmueble</h2>
+  <form [formGroup]="inmuebleForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="direccion_Inmueble" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <input matInput formControlName="tipo_Inmueble" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Precio</mat-label>
+      <input matInput formControlName="precio_Inmueble" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="estado_Propiedad" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="descripcion_Propiedad" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Arrendador</mat-label>
+      <mat-select formControlName="arrendador" required>
+        <mat-option *ngFor="let arrendador of arrendadores" [value]="arrendador.id_Arrendador">
+          {{ arrendador.nombre_Arrendador }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Universidad</mat-label>
+      <mat-select formControlName="universidad" required>
+        <mat-option *ngFor="let universidad of universidades" [value]="universidad.id_Universidad">
+          {{ universidad.id_Universidad }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de publicación</mat-label>
+      <input matInput formControlName="fechaPublicacion" required [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="inmuebleForm.invalid">Guardar</button>
+  </form>
+</div>

@@ -74,6 +74,8 @@ import {MisComUComponent} from './components/universitario/perfil-u/mis-com-u/mi
 import {
   RegistraInmuebleComponent
 } from './components/arrendador/listar-inmuebles/registra-inmueble/registra-inmueble.component';
+import {DepartamentosComponent} from './components/arrendador/departamentos/departamentos.component';
+import {EditaInmuebleComponent} from './components/arrendador/listar-inmuebles/edita-inmueble/edita-inmueble.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -82,10 +84,12 @@ export const routes: Routes = [
     {path: 'inmueble/:id', component: DetalleInmuebleComponent },
     {path: 'inicio',component: InicioComponent},
     {path: 'universidades',component:UniverisdadesArrendadorComponent},
+      {path: 'departamentos',component:DepartamentosComponent},
     {path:'listar-inmuebles',component:ListarInmueblesComponent, children: [
         {path: 'registraInmueble',component:RegistraInmuebleComponent},
         {path: 'verInmueble',component:VerInmuebleComponent},
         {path: 'listaInmueble',component:ListaInmueblesComponent},
+        {path: 'editaInmueble/:id',component:EditaInmuebleComponent},
         {path: 'contarInmueble', component:ContarInmuebleComponent},
         {path: 'listaReserva', component: ListaReservasComponent},
         {path: 'reservasRecientes', component: ReservasRecientesComponent},

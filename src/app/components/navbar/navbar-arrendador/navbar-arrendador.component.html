@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #f2792d;">
   <div class="container">
-    <a class="navbar-brand fw-bold text-white" href="#">
+    <a class="navbar-brand fw-bold text-white"  [routerLink]="['/arrendador/inicio']">
       YourConfort
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,16 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['/arrendador/inicio']">Inicio</a>
+          <a class="nav-link text-white" [routerLink]="['/arrendador/inicio']"  >Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" [routerLink]="['/arrendador/universidades']">Universidades</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Departamentos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Cuartos</a>
+          <a class="nav-link text-white"[routerLink]="['/arrendador/departamentos']" >Departamentos</a>
         </li>
       </ul>
 

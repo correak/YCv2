@@ -64,4 +64,13 @@ export class InmuebleService {
   getInmueblesPorArrendador(arrendadorId: number): Observable<HU18Dto[]> {
     return this.http.get<HU18Dto[]>(`${this.url}/inmuebles/arrendador/${arrendadorId}`);
   }
+
+  deleteInmueble(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/inmueble/${id}`);
+  }
+
+  updateInmueble(inmueble: Inmueble): Observable<Inmueble> {
+    return this.http.put<Inmueble>(`${this.url}/inmueble`, inmueble);
+  }
+
 }

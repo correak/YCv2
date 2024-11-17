@@ -18,6 +18,7 @@ import {Arrendador} from '../../../../model/arrendador';
 import {HU18Dto} from '../../../../model/hu18-dto';
 import {ArrendadorService} from '../../../../services/arrendador.service';
 import {InmuebleService} from '../../../../services/inmueble.service';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-ver-inmueble',
@@ -44,6 +45,7 @@ import {InmuebleService} from '../../../../services/inmueble.service';
     MatFormFieldModule, // Asegúrate de incluirlo
     MatSelectModule,
     NgIf,
+    RouterLink,
   ],
   templateUrl: './ver-inmueble.component.html',
   styleUrl: './ver-inmueble.component.css'
@@ -51,7 +53,7 @@ import {InmuebleService} from '../../../../services/inmueble.service';
 export class VerInmuebleComponent implements OnInit{
   arrendadores: Arrendador[] = []; // Lista de arrendadores
   inmuebles: HU18Dto[] = []; // Lista de inmuebles
-  displayedColumns: string[] = ['direccionInmueble', 'tipoInmueble', 'precioInmueble', 'estadoPropiedad']; // Columnas de la tabla
+  displayedColumns: string[] = ['direccionInmueble', 'tipoInmueble', 'precioInmueble', 'estadoPropiedad', 'acciones'];
 
   constructor(
     private arrendadorService: ArrendadorService,
@@ -72,6 +74,27 @@ export class VerInmuebleComponent implements OnInit{
     this.inmuebleService.getInmueblesPorArrendador(arrendadorId).subscribe((data) => {
       this.inmuebles = data; // Actualizar la lista de inmuebles
     });
+  }
+
+  onEditar(inmueble: HU18Dto): void {
+    console.log('Editar inmueble:', inmueble);
+    // Implementa la lógica para abrir un formulario de edición o redirigir a una página de edición
+  }
+
+  onBorrar(idInmueble: number): void {
+    if (confirm('¿Estás seguro de que deseas borrar este inmueble?')) {
+      this.inmuebleService.deleteInmueble(idInmueble).subscribe({
+        next: () => {
+          // Filtra el arreglo para eliminar el inmueble borrado
+          this.inmuebles = this.inmuebles.filter((i) => i.idInmueble !== idInmueble);
+          console.log('Inmueble borrado:', idInmueble);
+        },
+        error: (err) => {
+          console.error('Error al borrar el inmueble:', err);
+          alert('Ocurrió un error al intentar borrar el inmueble.');
+        },
+      });
+    }
   }
 
 }

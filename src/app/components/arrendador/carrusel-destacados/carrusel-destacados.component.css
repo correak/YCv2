@@ -31,7 +31,7 @@
 .navegacion {
   font-size: 1.5em;
   color: #FF6600;
-  background: none;
+  background: fill;
   border: none;
   cursor: pointer;
   outline: none;
